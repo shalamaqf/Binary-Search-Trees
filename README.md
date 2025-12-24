@@ -1,3 +1,3 @@
 ## Description
 
-A data structure project that implements a balance binary search trees with its operation, such as insert, delete, rebalance, and more.
+A project that implements algorithm Binary Search Trees on Tree data structure and its operations such as, insertion, deletion, find value, and more.
