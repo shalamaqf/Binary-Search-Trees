@@ -10,7 +10,7 @@ class Node {
 // Create a Tree class
 class Tree {
     constructor(array) {
-        this.root = null;
+        this.root = this.buildTree(array, 0, array.length - 1);
     }
 
     // Create a method to build a balanced binary search trees
