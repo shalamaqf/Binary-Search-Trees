@@ -41,11 +41,31 @@ class Tree {
             return currentRoot = new Node(value);
         }
 
-        // Compare teh value with the root
+        // Compare the value with the current root
         if (value < currentRoot.data) {
             currentRoot.left = this.insert(value, currentRoot.left);
         } else {
             currentRoot.right = this.insert(value, currentRoot.right);
+        }
+
+        return currentRoot;
+    }
+
+    // Create a method to delete a node with no child in the tree
+    deleteNodeNoChild(value, currentRoot) {
+        // If the current root is null, we return null
+        if (currentRoot === null) return null;
+
+        // Check if the value is equal to the current root
+        if (value === currentRoot.data) {
+            return currentRoot = null;
+        }
+
+        // Traverse and compare the value with the current root
+        if (value < currentRoot.data) {
+            currentRoot.left = this.deleteNodeNoChild(value, currentRoot.left);
+        } else {
+            currentRoot.right = this.deleteNodeNoChild(value, currentRoot.right);
         }
 
         return currentRoot;
