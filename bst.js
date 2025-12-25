@@ -53,7 +53,7 @@ class Tree {
 
     // Create a method to delete a node with no child in the tree
     deleteNodeNoChild(value, currentRoot) {
-        // If the current root is null, we return null
+        // Check if the current root is null
         if (currentRoot === null) return null;
 
         // Check if the value is equal to the current root
@@ -66,6 +66,27 @@ class Tree {
             currentRoot.left = this.deleteNodeNoChild(value, currentRoot.left);
         } else {
             currentRoot.right = this.deleteNodeNoChild(value, currentRoot.right);
+        }
+
+        return currentRoot;
+    }
+
+    // Create a method to delete a node with one child
+    deleteNodeOneChild(value, currentRoot) {
+        // Check if the current root is null
+        if (currentRoot === null) return null;
+
+        // Check if the value is equal to the current root
+        if (value === currentRoot.data) {
+            if (currentRoot.left === null) return currentRoot.right;
+            return currentRoot.left;
+        }
+
+        // Compare the value with the current root
+        if (value < currentRoot.data) {
+            currentRoot.left = this.deleteNodeOneChild(value, currentRoot.left)
+        } else {
+            currentRoot.right = this.deleteNodeOneChild(value, currentRoot.right);
         }
 
         return currentRoot;
