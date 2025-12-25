@@ -33,4 +33,21 @@ class Tree {
         // Return the node
         return node;
     }
+
+    // Create a method to insert a new value
+    insert(value, currentRoot) {
+        // Check if a root is a null
+        if (currentRoot === null) {
+            return currentRoot = new Node(value);
+        }
+
+        // Compare teh value with the root
+        if (value < currentRoot.data) {
+            currentRoot.left = this.insert(value, currentRoot.left);
+        } else {
+            currentRoot.right = this.insert(value, currentRoot.right);
+        }
+
+        return currentRoot;
+    }
 }
