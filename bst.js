@@ -52,12 +52,38 @@ class Tree {
     }
 
     // Create a method to get the sucessor
-    getSucessor(current) {
+    getSuccessor(current) {
         current = current.right;
         while (current !== null && current.left !== null) {
             current = current.left
         }
         return current.data;
+    }
+
+    // Create a method to delete a node
+    delete(value, currentRoot) {
+        // Check if the current root is null
+        if (currentRoot === null) return null;
+
+        if (value < currentRoot.data) {
+            currentRoot.left = this.delete(value, currentRoot.left);
+        } else if (value > currentRoot.data) {
+            currentRoot.right = this.delete(value, currentRoot.right);
+        } else {
+            // Check if targeted node has no child or one child
+            if (currentRoot.left === null) {
+                return currentRoot.right;
+            } else if (currentRoot.right === null) {
+                return currentRoot.left
+            } else {
+                // If targeted node has two childs
+                const successor = this.getSuccessor(currentRoot);
+                currentRoot.data = successor;
+                currentRoot.right = this.delete(successor, currentRoot.right);
+            }
+        }
+
+        return currentRoot;
     }
 
     
