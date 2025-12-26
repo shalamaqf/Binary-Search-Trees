@@ -86,5 +86,21 @@ class Tree {
         return currentRoot;
     }
 
+    // Create a method to find the node with given value
+    find(value, currentRoot) {
+        // Check if the current root is null
+        if (currentRoot === null) return null;
+
+        // Check if the value is equal to the current root
+        if (value === currentRoot.data) return currentRoot;
+
+        // Traverse the tree
+        if (value < currentRoot.data) {
+            return this.find(value, currentRoot.left);
+        } else {
+            return this.find(value, currentRoot.right);
+        }
+    }
+
     
 }
