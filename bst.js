@@ -163,4 +163,11 @@ class Tree {
         this.preOrderTraversal(array, root.left);
         this.preOrderTraversal(array, root.right);
     }
+
+    // Create a method to returns an array contains tree nodes in the post order
+    postOrder(root) {
+        let array = [];
+        this.postOrderTraversal(array, root);
+        return array;
+    }
 }
