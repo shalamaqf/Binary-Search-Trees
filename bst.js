@@ -133,7 +133,7 @@ class Tree {
     }
     
     // Create a method to return an array contains tree nodes in order
-    inOrderArray(root) {
+    inOrder(root) {
         let array = [];
         this.inOrderTraversal(array, root);
         return array;
