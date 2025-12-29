@@ -131,4 +131,13 @@ class Tree {
 
         return levelOrder;
     }
+
+    // Create a method to traversal the tree in order
+    inOrderTraversal(array, root) {
+        // Check if the root is not null
+        if (root === null) return;
+        this.inOrderTraversal(array, root.left);
+        array.push(root.data);
+        this.inOrderTraversal(array, root.right);
+    }
 }
