@@ -139,7 +139,7 @@ class Tree {
         return array;
     }
 
-    // Create a method to traversal the tree in order
+    // Create a method to traverse the tree in order
     inOrderTraversal(array, root) {
         // Check if the root is not null
         if (root === null) return;
@@ -155,7 +155,7 @@ class Tree {
         return array;
     }
 
-    // Create a method to traversal the tree pre order
+    // Create a method to traverse the tree on pre order
     preOrderTraversal(array, root) {
         // Check if the root is null
         if (root === null) return;
@@ -169,5 +169,14 @@ class Tree {
         let array = [];
         this.postOrderTraversal(array, root);
         return array;
+    }
+
+    // Create a method to traverse the tree on post order
+    postOrderTraversal(array, root) {
+        // Check if the root is null
+        if (root === null) return;
+        this.postOrderTraversal(array, root.left);
+        this.postOrderTraversal(array, root.right);
+        array.push(root.data);
     }
 }
