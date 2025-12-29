@@ -102,5 +102,33 @@ class Tree {
         }
     }
 
-    
+    // Create a method to print the tree in level order
+    levelOrderForEach(node) {
+        // Check if the node is null
+        if (node === null) return;
+
+        // Create an array with queue behaviour
+        let queue = [];
+
+        // Push the node in to the queue
+        queue.push(node);
+
+        // Create an array to contain the node in level order
+        let levelOrder = [];
+
+        // Loop while the queue is not null to print the node and its children
+        while (queue.length !== 0) {
+            // Create a variable to keep in track the first element of the queue
+            let current = queue.shift();
+
+            // Push the current node to levelOrder array
+            levelOrder.push(current.data);
+
+            // Push the first children to the queue if it's not null
+            if (current.left !== null) queue.push(current.left);
+            if (current.right !== null) queue.push(current.right);
+        }
+
+        return levelOrder;
+    }
 }
