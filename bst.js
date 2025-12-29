@@ -132,7 +132,7 @@ class Tree {
         return levelOrder;
     }
     
-    // Create a method to return an array contains tree nodes in order
+    // Create a method to returns an array contains tree nodes in the in order
     inOrder(root) {
         let array = [];
         this.inOrderTraversal(array, root);
@@ -146,5 +146,12 @@ class Tree {
         this.inOrderTraversal(array, root.left);
         array.push(root.data);
         this.inOrderTraversal(array, root.right);
+    }
+
+    // Create a method to returns an array contains tree nodes in the pre order
+    preOrder(root) {
+        let array = [];
+        this.preOrderTraversal(array, root);
+        return array;
     }
 }
