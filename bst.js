@@ -154,4 +154,13 @@ class Tree {
         this.preOrderTraversal(array, root);
         return array;
     }
+
+    // Create a method to traversal the tree pre order
+    preOrderTraversal(array, root) {
+        // Check if the root is null
+        if (root === null) return;
+        array.push(root.data);
+        this.preOrderTraversal(array, root.left);
+        this.preOrderTraversal(array, root.right);
+    }
 }
