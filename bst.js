@@ -179,4 +179,20 @@ class Tree {
         this.postOrderTraversal(array, root.right);
         array.push(root.data);
     }
+
+    // Create a method to find the node for compute the height
+    findNode(value, currentRoot) {
+        // Check if the current root is null
+        if (currentRoot === null) return -1;
+
+        // Check if the value is equal with the current root
+        if (value === currentRoot.data) return currentRoot;
+
+        // Find the node
+        if (value < currentRoot.data) {
+            return this.findNode(value, currentRoot.left);
+        } else {
+            return this.findNode(value, currentRoot.right);
+        }
+    }
 }
