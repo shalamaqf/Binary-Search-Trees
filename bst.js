@@ -271,4 +271,16 @@ class Tree {
         if (balance === -1) return false;
         return true;
     }
+
+    // Create a method to rebalance a unbalanced tree
+    rebalance(currentRoot) {
+        // Check if the current root is null
+        if (currentRoot === null) return null;
+
+        // Turn the unsorted array to sorted array
+        const sortedArray = this.inOrder(currentRoot);
+
+        // Return the balanced tree
+        return this.buildTree(sortedArray, 0, sortedArray.length - 1);
+    }
 }
