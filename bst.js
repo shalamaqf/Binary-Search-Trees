@@ -264,4 +264,11 @@ class Tree {
         // Otherwise, return the height is balanced
         return Math.max(leftHeight, rightHeight) + 1;
     }
+
+    // Create a method to handle if tree is balanced or not
+    isBalanced(currentRoot) {
+        const balance = this.isBalancedCheck(currentRoot);
+        if (balance === -1) return false;
+        return true;
+    }
 }
