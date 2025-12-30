@@ -249,8 +249,8 @@ class Tree {
         if (currentRoot === null) return 0;
 
         // Call this method on left and right child
-        const leftHeight = this.isBalanced(currentRoot.left);
-        const rightHeight = this.isBalanced(currentRoot.right);
+        const leftHeight = this.isBalancedCheck(currentRoot.left);
+        const rightHeight = this.isBalancedCheck(currentRoot.right);
 
         // Compute diff
         const diff = Math.abs(leftHeight - rightHeight);
@@ -272,7 +272,7 @@ class Tree {
         return true;
     }
 
-    // Create a method to rebalance a unbalanced tree
+    // Create a method to rebalance an unbalanced tree
     rebalance(currentRoot) {
         // Check if the current root is null
         if (currentRoot === null) return null;
