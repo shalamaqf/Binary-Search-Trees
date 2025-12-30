@@ -242,4 +242,26 @@ class Tree {
             return 1 + result;
         }
     }
+
+    // Create a method to check if a tree is balanced
+    isBalancedCheck(currentRoot) {
+        // Check if the current root is null
+        if (currentRoot === null) return 0;
+
+        // Call this method on left and right child
+        const leftHeight = this.isBalanced(currentRoot.left);
+        const rightHeight = this.isBalanced(currentRoot.right);
+
+        // Compute diff
+        const diff = Math.abs(leftHeight - rightHeight);
+
+        // Check if left or right child return -1
+        if ((leftHeight === -1) || (rightHeight === -1)) return -1
+
+        // Check if diff is more than 1
+        if (diff > 1) return -1;
+
+        // Otherwise, return the height is balanced
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
 }
