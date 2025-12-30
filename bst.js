@@ -180,6 +180,19 @@ class Tree {
         array.push(root.data);
     }
 
+    // Create a method to compute the node height
+    computeHeight(node) {
+        // If the node is null, return -1
+        if (node === null) return -1;
+
+        // Compute the left tree and right tree
+        let leftHeight = this.computeHeight(node.left);
+        let rightHeight = this.computeHeight(node.right);
+        
+        // Return the height
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
     // Create a method to find the node for compute the height
     findNode(value, currentRoot) {
         // Check if the current root is null
