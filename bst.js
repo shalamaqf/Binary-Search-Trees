@@ -8,7 +8,7 @@ class Node {
 }
 
 // Create a Tree class
-class Tree {
+export class Tree {
     constructor(array) {
         this.root = this.buildTree(array, 0, array.length - 1);
     }
