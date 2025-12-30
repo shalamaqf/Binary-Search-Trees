@@ -217,4 +217,29 @@ class Tree {
             return this.findNode(value, currentRoot.right);
         }
     }
+
+    // Create a method to find the depth of the node in the tree
+    findDepth(value, currentRoot) {
+        // Check if the current is null
+        if (currentRoot === null) return -1;
+
+        // Check if the value is equal with the current root data
+        if (value === currentRoot.data) return 0;
+
+        // Declare a variable to cstore the return value
+        let result;
+
+        // Traverse to find the node and its depth
+        if (value < currentRoot.data) {
+            result = this.findDepth(value, currentRoot.left);
+        } else {
+            result = this.findDepth(value, currentRoot.right);
+        }
+
+        if (result === -1) {
+            return -1;
+        } else {
+            return 1 + result;
+        }
+    }
 }
