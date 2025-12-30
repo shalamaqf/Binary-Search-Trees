@@ -193,6 +193,15 @@ class Tree {
         return Math.max(leftHeight, rightHeight) + 1;
     }
 
+    // Create a method to handle the node height
+    findHeight(value, currentRoot) {
+        const node = this.findNode(value, currentRoot);
+
+        if (node !== -1) return console.log(this.computeHeight(node));
+        return 'Node not found'
+
+    }
+
     // Create a method to find the node for compute the height
     findNode(value, currentRoot) {
         // Check if the current root is null
